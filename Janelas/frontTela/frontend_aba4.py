@@ -101,7 +101,13 @@ class Aba4:
         vistlabel.place(relx=0.61, rely=0.61, width= 220, height= 25)
 
         ###  Botao botaoImprimirVist
-        self.botaoImprimirVist = Button(self.frame_aba4,
-            image=self.button_imprime2, command=self.imprime_vist)
-        self.botaoImprimirVist.place(relx=0.69, rely=0.43,
-                                     width= 72, height= 47)
+        if self.Licenca == "Versão não registrada!!!!":
+            self.botaoImprimirVist = Button(self.frame_aba4, image=self.button_imprime2,
+                command= lambda: messagebox.showinfo("GLAC ", "Registre sua copia para poder utilizar esta funcionalidade"))
+            self.botaoImprimirVist.place(relx=0.69, rely=0.43,
+                                         width=72, height=47)
+        else:
+            self.botaoImprimirVist = Button(self.frame_aba4,
+                image=self.button_imprime2, command=self.imprime_vist)
+            self.botaoImprimirVist.place(relx=0.69, rely=0.43,
+                                         width= 72, height= 47)

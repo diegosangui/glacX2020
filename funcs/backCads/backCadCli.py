@@ -1,4 +1,5 @@
 from Janelas.estiloWidgets.autcomplety import *
+import pycep_correios
 
 class CadCli:
     def add_autobindC(self, event):
@@ -504,13 +505,10 @@ class CadCli:
         self.ufPeEntry.delete(0, END)
         try:
             self.cep = self.cepPeEntry.get()
-            endcep = pycep_correios.consultar_cep(self.cep)
-
-            self.logradPeEntry.insert(END, endcep['end'])
+            endcep = pycep_correios.get_address_from_cep(self.cep)
+            self.logradPeEntry.insert(END, endcep['logradouro'])
             self.bairroPeEntry.insert(END, endcep['bairro'])
             self.cidadePeEntry.insert(END, endcep['cidade'])
             self.ufPeEntry.insert(END, endcep['uf'])
-
-        except ExcecaoPyCEPCorreios as exc:
-            msg = 'Not find - Não encontrado'
-            messagebox.showinfo("GLAC", msg)
+        except:
+            messagebox.showinfo("GLAC", 'Cep não encontrado')

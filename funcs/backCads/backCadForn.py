@@ -1,4 +1,5 @@
 from Janelas.estiloWidgets.autcomplety import *
+import pycep_correios
 
 class CadForn():
     def OnDoubleClickForn(self, event):
@@ -223,9 +224,9 @@ class CadForn():
 
         try:
             self.cep = self.entradaCep.get()
-            self.endereco = pycep_correios.consultar_cep(self.cep)
-
-            self.entradaEndereco.insert(END, self.endereco['end'])
+            self.endereco = pycep_correios.get_address_from_cep(self.cep)
+            print(self.endereco)
+            self.entradaEndereco.insert(END, self.endereco['logradouro'])
             self.entradaEndereco.insert(END, ' - ')
             self.entradaEndereco.insert(END, self.endereco ['bairro'])
 
@@ -233,9 +234,8 @@ class CadForn():
             self.entradaMunicipio.insert(END, ' - ')
             self.entradaMunicipio.insert(END, self.endereco['uf'])
 
-
-        except ExcecaoPyCEPCorreios as exc:
-            msg = multi.CepNotFind
+        except:
+            msg = "Cep nao encontrado"
             msg += ""
             messagebox.showinfo("GLAC ", msg)
     def busca_fornecedor(self):

@@ -22,9 +22,14 @@ class QuintoFrame:
         self.licenciamentoBt.place(relx=0.3, rely=0.6, relwidth=0.3, relheight=0.4)
 
         ###  Botao Imprimir Orçamento
-        self.botaoImprimirOrc = Button(self.top5, image=self.button_imprime2,
-            command=self.imprime_orc)
-        self.botaoImprimirOrc.place(relx=0.74, rely=0.05, width=69, height=47)
+        if self.Licenca == "Versão não registrada!!!!":
+            self.botaoImprimirOrc = Button(self.top5, image=self.button_imprime2,
+                command= lambda: messagebox.showinfo("GLAC ", "Registre sua copia para poder utilizar esta funcionalidade"))
+            self.botaoImprimirOrc.place(relx=0.74, rely=0.05, width=69, height=47)
+        else:
+            self.botaoImprimirOrc = Button(self.top5, image=self.button_imprime2,
+                                           command=self.imprime_orc)
+            self.botaoImprimirOrc.place(relx=0.74, rely=0.05, width=69, height=47)
 
         def funcpag():
             if self.listaNumOrc.get() == "":

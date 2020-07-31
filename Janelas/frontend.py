@@ -26,7 +26,7 @@ if plataforma == "Linux" :
     janela = tix.Tk()
 else:
     janela = Tk()
-    
+
 
 class Tela(relatorios.PrintRel, BuscaOrc, BuscaTecnico,
            Busca_Serv, BuscaCliente, Calendario):

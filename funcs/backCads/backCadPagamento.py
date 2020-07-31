@@ -38,8 +38,12 @@ class CadPagamento:
             ORDER BY id ASC;
             """ % ordem)
         for i in informe:
+            i = str(i)
+            i = i.replace("(", "").replace(")", "").replace(",", "")
+            print(i)
+            i = float(i)
             self.entryValorInform.delete(0, END)
-            self.entryValorInform.insert(END, i)
+            self.entryValorInform.insert(END, f'{i:>8.2f}')
 
         self.entryValor.delete(0, END)
 
@@ -80,7 +84,6 @@ class CadPagamento:
         ano = self.anovar.get()
         pago = self.entry7.get()
 
-
         self.listaPag.delete(*self.listaPag.get_children())
 
         lista = self.cursor.execute("""
@@ -98,10 +101,15 @@ class CadPagamento:
             FROM formapag WHERE tipopag = ? AND  mes = ? AND ano = ?
             AND pago = ? ORDER BY id ASC; """, (tipopag, mes, ano, pago))
         for i in lista2:
+            i = str(i)
             if i == '':
                 self.entryValorDevido.insert(END, "0.00")
             else:
-                self.entryValorDevido.insert(END, i)
+                i = str(i)
+                i = i.replace("(", "").replace(")", "").replace(",", "")
+                print(i)
+                i = float(i)
+                self.entryValorDevido.insert(END, f'{i:>8.2f}')
 
         self.desconecta_Glac()
     def carregaConsulta2(self):
@@ -128,7 +136,10 @@ class CadPagamento:
             FROM formapag WHERE mes = ? AND ano = ?
             AND pago = ? ORDER BY id ASC; """, ( mes, ano, pago))
         for i in lista2:
-            self.entryValorDevido.insert(END, i)
-
+            i = str(i)
+            i = i.replace("(", "").replace(")", "").replace(",", "")
+            print(i)
+            i = float(i)
+            self.entryValorDevido.insert(END, f'{i:>8.2f}')
 
         self.conn.close()

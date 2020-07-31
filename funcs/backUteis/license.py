@@ -5,6 +5,6 @@ class Data_company():
         self.NomeBairroEmp  = "Nome do Bairro   xxxxxxxx"
         self.MunicipioEmp   = "Municipio   xxxxxxxxxx"
         self.TelefoneEmp    = "Telefone  xxxxxxxxx"
-        self.Licenca        = "Opensource Version!!!!"
+        self.Licenca        = "Versão não registrada!!!!"
         self.LicencaCpf     = "00011100099"
 

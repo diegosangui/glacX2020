@@ -411,14 +411,18 @@ class PagamentoOrc(CadPagamento):
             ORDER BY id ASC;
             """ % numAt)
         for i in informe:
-            self.entryValorInform.insert(END, i)
+            i = str(i)
+            i = i.replace("(","").replace(")","").replace(",","")
+            print(i)
+            i = float(i)
+            self.entryValorInform.insert(END, f'{i:>8.2f}')
 
         rest1 = self.entryValorTotal.get()
         rest1 = float(rest1)
         rest2 = self.entryValorInform.get()
         rest2 = float(rest2)
         restante = rest1 - rest2
-        self.entryValorDevido.insert(END, restante)
+        self.entryValorDevido.insert(END, f'{restante:>8.2f}')
 
         conn.close()
         self.janelaPagOrc.mainloop()
