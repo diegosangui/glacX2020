@@ -13,49 +13,49 @@ class Aba2:
                               relwidth=0.99, relheight=0.99)
         # Label codigo
         self.descrCodI = LabelGlac(self.frame_aba2)
-        self.descrCodI.configure(bg=self.bg_button, fg=self.fg_label,
-            text='Código / Item')
+        self.descrCodI.configure(bg=self.bg_button, fg=self.fg_label, text = self.m_CodigoItem)
         self.descrCodI.place(relx=0.56, rely=0.02,
                              relwidth=0.12, relheight=0.09)
         # Label Servicos Peças
         self.descrCol2 = LabelGlac(self.frame_aba2)
-        self.descrCol2.configure(text = 'Serviços / Produtos', justify='center'
+        self.descrCol2.configure(text = self.m_ServicosProdutos, justify='center'
             ,fg=self.bg_label, bg=self.fg_label)
         self.descrCol2.place(relx=0.01, rely=0.02,
                              relwidth=0.55, relheight=0.09)
 
         # Label Valor
-        self.descrCol3 = Label(self.frame_aba2, text=self.m_ValorUnit,
+        self.descrCol3 = Label(self.frame_aba2, text = self.m_ValorUnit,
             bg=self.bg_label, fg=self.fg_label, font=('Verdana', '10', 'bold'));
         self.descrCol3.place(relx=0.69, rely=0.02,
                              relwidth=0.09, relheight=0.09)
 
         # Quantidade
         self.descrQuant = ButtonGlac(self.frame_aba2)
-        self.descrQuant.configure(text=self.m_Quant, bg=self.fg_label,
-            fg=self.bg_label, command=self.altera_itens_orc_quant2,
+        self.descrQuant.configure(text = self.m_Quant, bg = self.fg_label,
+            fg = self.bg_label, command = self.altera_itens_orc_quant2,
             font=('Verdana', '10', 'bold'))
         self.descrQuant.place(relx=0.78, rely=0.02,
                               relwidth=0.05, relheight=0.09)
 
         ###     Total Item
-        self.descrTotalItem = Label(self.frame_aba2, text=self.m_Total + ' ' + self.m_Item, bg=self.bg_label,
-                                    fg=self.fg_label, font=('Verdana', '10', 'bold'))
-        self.descrTotalItem.place(relx=0.83, rely=0.02,
-                                  relwidth=0.1, relheight=0.09)
+        self.descrTotalItem = Label(
+            self.frame_aba2, text = self.m_Total + ' ' + self.m_Item, bg = self.bg_label,
+            fg = self.fg_label, font = ('Verdana', '10', 'bold'))
+        self.descrTotalItem.place(
+            relx=0.83, rely=0.02, relwidth=0.1, relheight=0.09)
 
-        ###############################
         ### Widgets - Listar item 1 ###
         self.listaCol2a = AutocompleteEntrySP(self.frame_aba2)
-        self.listaCol2a.place(relx=0.01, rely=0.11,
-                              relwidth=0.5, relheight=0.1)
+        self.listaCol2a.place(
+            relx=0.01, rely=0.11, relwidth=0.5, relheight=0.1)
 
         ### Codigo do Item
-        self.codServ1 = Entry(self.frame_aba2, validate="key", width=6, bd=1,
+        self.codServ1 = Entry(
+            self.frame_aba2, validate="key", width=6, bd=1,
             justify='center', fg=self.fg_entry, bg=self.bg_entry,
-            validatecommand=self.vcmd6, font=('Verdana', '8', 'bold'))
-        self.codServ1.place(relx=0.56, rely=0.11,
-                            relwidth=0.06, relheight=0.1)
+            font=('Verdana', '8', 'bold'))
+        self.codServ1.place(
+            relx=0.56, rely=0.11, relwidth=0.06, relheight=0.1)
 
         self.btSeta = self.btSeta.subsample(4,5)
         self.botaoAddServicos1 = Button(self.frame_aba2,

@@ -15,9 +15,9 @@ class CadProdutos:
         hora = '1'
 
         self.cursor.execute("""
-     		INSERT INTO servprod ( servprod, id_marcaprod, id_fornec, custo, valor, sp, descricao, tiposerv, hor)
-     		VALUES ( ?, ?, ?, ?, ?, "P", ?, ?, ?)""",
-                       (servprod, id_marcaprod, id_fornec, custo, valor, descricao, tipser, hora))
+     		INSERT INTO servprod ( cod_sp, servprod, id_marcaprod, id_fornec, custo, valor, sp, descricao, tiposerv, hor)
+     		VALUES ( ?, ?, ?, ?, ?, ?, "P", ?, ?, ?)""",
+                       (cod_sp, servprod, id_marcaprod, id_fornec, custo, valor, descricao, tipser, hora))
         self.conn.commit()
         self.listaServ.delete(*self.listaServ.get_children())
         lista = self.cursor.execute("""

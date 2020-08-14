@@ -6,7 +6,7 @@ class QuintoFrame:
     def quinto_frame(self):
         #### Caixa de Seleção de Orçamento ou Ordem de Serviço
         self.Tipvar = StringVar()
-        self.TipV = (self.m_Ordem, self.m_Orcamento);
+        self.TipV = ("Ordem de Serviço", self.m_Orcamento);
         self.Tipvar.set(self.m_Orcamento)
         self.popupMenu = OptionMenu(self.top5, self.Tipvar, *self.TipV)
         self.popupMenu.place(relx= 0.05,rely= 0.2,width= 160,height=35)
@@ -22,24 +22,20 @@ class QuintoFrame:
         self.licenciamentoBt.place(relx=0.3, rely=0.6, relwidth=0.3, relheight=0.4)
 
         ###  Botao Imprimir Orçamento
-        if self.Licenca == "Versão não registrada!!!!":
+        if self.versãoLicenca == "Open":
             self.botaoImprimirOrc = Button(self.top5, image=self.button_imprime2,
-                command= lambda: messagebox.showinfo("GLAC ", "Registre sua copia para poder utilizar esta funcionalidade"))
-            self.botaoImprimirOrc.place(relx=0.74, rely=0.05, width=69, height=47)
+                command= lambda: messagebox.showinfo(
+                    "GLAC ", self.m_MensagemRegistro))
         else:
             self.botaoImprimirOrc = Button(self.top5, image=self.button_imprime2,
                                            command=self.imprime_orc)
-            self.botaoImprimirOrc.place(relx=0.74, rely=0.05, width=69, height=47)
+        self.botaoImprimirOrc.place(relx=0.74, rely=0.05, width=69, height=47)
 
         def funcpag():
             if self.listaNumOrc.get() == "":
-                msg = "É necessário que um Orçamento ou Ordem de Serviço esteja " \
-                      "devidamente carregada na tela!!!"
-                messagebox.showinfo("GLAC", msg)
+                messagebox.showinfo("GLAC", self.m_EnecessarioOS)
             elif self.listaNumOrc.get() == "Numero":
-                msg = "É necessário que um Orçamento ou Ordem de Serviço esteja " \
-                      "devidamente carregada na tela!!!"
-                messagebox.showinfo("GLAC", msg)
+                messagebox.showinfo("GLAC", self.m_EnecessarioOS)
             else:
                 self.pagaOrdem()
 

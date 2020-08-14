@@ -40,7 +40,7 @@ class Aba1:
 
         self.descrInicio = Button(self.frame_aba1, font=('Verdana', '8', 'bold'),
             command =self.calendarioInicio)
-        self.descrInicio.configure(text='Data inicial',
+        self.descrInicio.configure(text = self.m_DataInicial,
                                    fg=self.fg_label,
                                    bg=self.fundo_do_frame)
         self.descrInicio.place(relx=0.05, rely=0.045,
@@ -53,7 +53,7 @@ class Aba1:
         ###  Label e Entrada Fim
         self.descrFim = Button(self.frame_aba1, font=('Verdana', '8', 'bold'),
             command=self.calendarioFim);
-        self.descrFim.configure(text='Data final', fg=self.fg_label,
+        self.descrFim.configure(text = self.m_DataFinal, fg=self.fg_label,
             bg=self.fundo_do_frame)
         self.descrFim.place(relx=0.05, rely=0.495, relwidth=0.08, relheight=0.1)
 

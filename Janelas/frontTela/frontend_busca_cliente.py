@@ -69,7 +69,7 @@ class BuscaCliente:
         self.listaServ.bind("<Double-1>", self.carrega_cliente2)
 
         self.ButtonClienteNovo = ButtonGlac(self.listacliente)
-        self.ButtonClienteNovo.configure(text="Novo",
+        self.ButtonClienteNovo.configure(text = self.m_Novo,
                                 font=('Verdana', '8', 'bold'),
                                 command=self.cadcli)
         self.ButtonClienteNovo.place(x=10, y=350)
