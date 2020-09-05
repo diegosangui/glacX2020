@@ -5,7 +5,7 @@ from Janelas.estiloWidgets.labelStyle import LabelGlac
 from Janelas.estiloWidgets.gradienteFrame import *
 from Janelas.estiloWidgets.autcomplety import *
 
-class Automoveis(CadAuto):
+class Automoveis(cadAuto):
     def cadaut(self):
         self.telaAut()
         self.canvasAut()

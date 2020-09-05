@@ -1,6 +1,16 @@
 from Janelas.estiloWidgets.autcomplety import *
 
-class CadAuto():
+del1 = "0"
+del2 = "end"
+
+class cadAuto:
+    def formataString(self, i):
+        self.i = self.i.replace('(', '')
+        self.i = self.i.replace(')', '')
+        self.i = self.i.replace("'", "")
+        self.i = self.i.replace(',', '')
+        self.i = self.i.replace('{', '')
+        self.i = self.i.replace('}', '')
     def variaveisA(self):
         self.cod_aut = self.entradaCod_autA.get()
         self.automovel = self.entradaAutA.get()
@@ -83,15 +93,11 @@ class CadAuto():
             "WHERE montadora.cod = automoveis.montad "
             "AND cod_aut = '%s'" % cod_aut)
         consultaautomovel = self.cursor.fetchall()
-        for i in consultaautomovel:
-            i = str(i);
-            i = i.replace('(', '');
-            i = i.replace(')', '');
-            i = i.replace("'", "");
-            i = i.replace(',', '');
-            i = i.replace('{', '');
-            i = i.replace('}', '')
-            self.entradaAutA.insert(0, i)
+        for self.i in consultaautomovel:
+            self.i = str(self.i)
+            self.formataString(self.i)
+            self.entradaAutA.insert(0, self.i)
+            print(self.i)
 
         nomemarca = self.cursor
         nomemarca.execute(
@@ -99,15 +105,11 @@ class CadAuto():
             "WHERE montadora.cod = automoveis.montad "
             "AND cod_aut = '%s'" % cod_aut)
         consultamarca = self.cursor.fetchall()
-        for i in consultamarca:
-            i = str(i);
-            i = i.replace('(', '');
-            i = i.replace(')', '');
-            i = i.replace("'", "");
-            i = i.replace(',', '');
-            i = i.replace('{', '');
-            i = i.replace('}', '')
-            self.entradaMarcaA.insert(0, i)
+        for self.i in consultamarca:
+            self.i = str(self.i)
+            self.formataString(self.i)
+            self.entradaMarcaA.insert(0, self.i)
+            print(self.i)
 
         nomemarca2 = self.cursor
         nomemarca2.execute(
@@ -115,15 +117,11 @@ class CadAuto():
             "WHERE montadora.cod = automoveis.montad "
             "AND cod_aut = '%s'" % cod_aut)
         consultamarca2 = self.cursor.fetchall()
-        for i in consultamarca2:
-            i = str(i);
-            i = i.replace('(', '');
-            i = i.replace(')', '');
-            i = i.replace("'", "");
-            i = i.replace(',', '');
-            i = i.replace('{', '');
-            i = i.replace('}', '')
-            self.entradaMarca2A.insert(0, i)
+        for self.i in consultamarca2:
+            self.i = str(self.i)
+            self.formataString(self.i)
+            self.entradaMarca2A.insert(0, self.i)
+            print(self.i)
 
         self.desconecta_Glac()
     def busca_automovelA(self):
@@ -160,7 +158,7 @@ class CadAuto():
             self.entradaMarcaA.insert(0, col2)
         self.listatec.destroy()
     def limpa_automovelA(self):
-        self.entradaCod_autA.delete('0', 'end')
-        self.entradaAutA.delete('0', 'end')
-        self.entradaMarcaA.delete('0', 'end')
-        self.entradaMarca2A.delete('0', 'end')
+        self.entradaCod_autA.delete(del1, del2)
+        self.entradaAutA.delete(del1, del2)
+        self.entradaMarcaA.delete(del1, del2)
+        self.entradaMarca2A.delete(del1, del2)
