@@ -3,6 +3,8 @@ from Janelas.estiloWidgets.autcomplety import *
 del1 = "0"
 del2 = "end"
 
+
+
 class cadAuto:
     def formataString(self, i):
         self.i = self.i.replace('(', '')
