@@ -3,26 +3,27 @@ from Janelas.estiloWidgets.autcomplety import *
 del1 = "0"
 del2 = "end"
 
-
-
 class cadAuto:
-    def formataString(self, i):
+
+    def formatastring(self, i):
         self.i = self.i.replace('(', '')
         self.i = self.i.replace(')', '')
         self.i = self.i.replace("'", "")
         self.i = self.i.replace(',', '')
         self.i = self.i.replace('{', '')
         self.i = self.i.replace('}', '')
-    def variaveisA(self):
+
+    def variaveisa(self):
         self.cod_aut = self.entradaCod_autA.get()
         self.automovel = self.entradaAutA.get()
         self.montad = self.entradaMarca2A.get()
-    def add_automovelA(self):
+
+    def addautomovela(self):
         self.variaveisA()
         self.conecta_Glac()
         if self.montad == '':
-            msg = "É necessário escolher a marca do "
-            msg += " automovel a ser cadastrado."
+            msg = "É necessário escolher a marca do \n " \
+                  "automovel a ser cadastrado."
             messagebox.showinfo("GLAC - Automovel", msg)
             self.desconecta_Glac()
         else:
@@ -36,7 +37,8 @@ class cadAuto:
             msg = self.m_msgAutAdd
             msg += ""
             messagebox.showinfo("GLAC - Automovel", msg)
-    def mud_automovelA(self):
+
+    def mudautomovela(self):
         self.variaveisA()
         self.conecta_Glac()
 
@@ -56,7 +58,8 @@ class cadAuto:
         msg = self.m_msgAutAlt
         msg += ""
         messagebox.showinfo("GLAC - Altera Automovel", msg)
-    def del_automovelA(self):
+
+    def delautomovela(self):
         self.variaveisA()
         self.conecta_Glac()
 
@@ -80,7 +83,8 @@ class cadAuto:
         msg = self.m_msgAutDel
         msg += ""
         messagebox.showinfo("GLAC - Altera Automovel", msg)
-    def carrega_automovelA(self):
+
+    def carregaautomovela(self):
         cod_aut = self.entradaCod_autA.get()
         self.conecta_Glac()
 
@@ -126,7 +130,8 @@ class cadAuto:
             print(self.i)
 
         self.desconecta_Glac()
-    def busca_automovelA(self):
+
+    def buscaautomovela(self):
         self.listaServ.delete(*self.listaServ.get_children())
         self.conecta_Glac()
 
@@ -142,7 +147,8 @@ class cadAuto:
             self.listaServ.insert("", 0, values=i)
         self.limpa_automovelA()
         self.desconecta_Glac()
-    def OnDoubleClickA(self, event):
+
+    def ondoubleclicka(self, event):
         self.limpa_automovelA()
         self.listaServ.selection()
 
@@ -151,15 +157,18 @@ class cadAuto:
             self.entradaCod_autA.insert(0, col1)
 
         self.carrega_automovelA()
+
     def OnVsbA(self, *args):
         self.listaServ.yview(*args)
-    def add_autobindA(self, event):
+
+    def addautobinda(self, event):
         for n in self.listaTec1.selection():
             col1, col2 = self.listaTec1.item(n, 'values')
             self.entradaMarca2A.insert(0, col1)
             self.entradaMarcaA.insert(0, col2)
         self.listatec.destroy()
-    def limpa_automovelA(self):
+
+    def limpaautomovela(self):
         self.entradaCod_autA.delete(del1, del2)
         self.entradaAutA.delete(del1, del2)
         self.entradaMarcaA.delete(del1, del2)
